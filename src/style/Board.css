@@ -1,0 +1,46 @@
+.rowStyle {
+  display: flex;
+}
+
+.boardStyle {
+  background-color: #eee;
+  width: 208px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border: 3px #eee solid;
+}
+
+.containerStyle {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.instructionsStyle {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.buttonStyle {
+  margin-top: 15px;
+  margin-bottom: 16px;
+  width: 80px;
+  height: 40px;
+  background-color: #8acaca;
+  color: Black;
+  font-size: 16px;
+}
+
+.buttonStyleDark {
+  margin-top: 15px;
+  margin-bottom: 16px;
+  width: 80px;
+  height: 40px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+}
