@@ -1,11 +1,15 @@
+import LightAndDark from "./Dark-Mode-Button";
 import Square from "./Square";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 function Board() {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [isXNext, setIsXNext] = useState(true);
   const [winner, setWinner] = useState(null);
   const [currentPlayer, setCurrentPlayer] = useState("X");
+
+  const { theme } = useContext(ThemeContext);
 
   function handleClick(index) {
     if (board[index] || winner) return;
@@ -45,6 +49,7 @@ function Board() {
       <button className="buttonStyle" onClick={handleReset}>
         Reset
       </button>
+      <LightAndDark />
       <div className="boardStyle">
         <div className="board-row rowStyle">
           {renderSquare(0)}
