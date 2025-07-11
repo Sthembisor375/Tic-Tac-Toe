@@ -1,6 +1,16 @@
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
+
 function Square({ value, onClick }) {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className="squareStyle square" onClick={onClick}>
+    <div
+      className={
+        theme === "Light" ? "square squareStyleDark" : "square squareStyle"
+      }
+      onClick={onClick}
+    >
       {value}
     </div>
   );

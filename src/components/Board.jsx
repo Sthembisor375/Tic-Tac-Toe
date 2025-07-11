@@ -1,11 +1,15 @@
+import LightAndDark from "./Dark-Mode-Button";
 import Square from "./Square";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 function Board() {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [isXNext, setIsXNext] = useState(true);
   const [winner, setWinner] = useState(null);
   const [currentPlayer, setCurrentPlayer] = useState("X");
+
+  const { theme } = useContext(ThemeContext);
 
   function handleClick(index) {
     if (board[index] || winner) return;
@@ -35,17 +39,40 @@ function Board() {
   }
 
   return (
-    <div className="gameBoard containerStyle">
-      <div id="statusArea" className="status instructionsStyle">
+    <div
+      className={
+        theme === "Light"
+          ? "gameBoard containerStyle"
+          : "gameBoard containerStyleDark"
+      }
+    >
+      <div
+        id="statusArea"
+        className={
+          theme === "Light"
+            ? "status instructionsStyle"
+            : "status instructionsStyleDark"
+        }
+      >
         Next player: <span>{currentPlayer}</span>
       </div>
-      <div id="winnerArea" className="winner instructionsStyle">
+      <div
+        id="winnerArea"
+        className={
+          theme === "Light"
+            ? "winner instructionsStyle"
+            : "winner instructionsStyleDark"
+        }
+      >
         Winner: <span>{winner || "None"}</span>
       </div>
-      <button className="buttonStyle" onClick={handleReset}>
+      <button
+        className={theme === "Light" ? "buttonStyle" : "buttonStyleDark"}
+        onClick={handleReset}
+      >
         Reset
       </button>
-      <div className="boardStyle">
+      <div className={theme === "Light" ? "boardStyle" : "boardStyleDark"}>
         <div className="board-row rowStyle">
           {renderSquare(0)}
           {renderSquare(1)}
@@ -62,6 +89,7 @@ function Board() {
           {renderSquare(8)}
         </div>
       </div>
+      <LightAndDark />
     </div>
   );
 }

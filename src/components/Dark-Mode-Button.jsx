@@ -1,21 +1,17 @@
-// import { useState, createContext } from "react";
+import { useState, useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
-// const MyContext = function LightAndDark() {
-//   let [state, setState] = useState("Dark");
-//   function handleClick() {
-//     state === "Dark" ? setState("Light") : setState("Dark");
-//   }
+function LightAndDark() {
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
-//   return (
-//     <>
-//       <button
-//         className={state === "Light" ? "buttonStyle" : "buttonStyleDark"}
-//         onClick={handleClick}
-//       >
-//         {state}
-//       </button>
-//     </>
-//   );
-// };
+  return (
+    <button
+      className={theme === "Light" ? "buttonStyle" : "buttonStyleDark"}
+      onClick={toggleTheme}
+    >
+      {theme}
+    </button>
+  );
+}
 
-// export default LightAndDark;
+export default LightAndDark;
