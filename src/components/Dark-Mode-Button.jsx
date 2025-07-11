@@ -3,7 +3,6 @@ import { ThemeContext } from "../contexts/ThemeContext";
 
 function LightAndDark() {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  console.log("Theme:", theme);
 
   return (
     <button

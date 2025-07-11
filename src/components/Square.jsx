@@ -7,7 +7,7 @@ function Square({ value, onClick }) {
   return (
     <div
       className={
-        theme === "Light" ? "square squareStyle" : "square squareStyleDark"
+        theme === "Light" ? "square squareStyleDark" : "square squareStyle"
       }
       onClick={onClick}
     >

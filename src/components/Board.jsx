@@ -39,18 +39,40 @@ function Board() {
   }
 
   return (
-    <div className="gameBoard containerStyle">
-      <div id="statusArea" className="status instructionsStyle">
+    <div
+      className={
+        theme === "Light"
+          ? "gameBoard containerStyle"
+          : "gameBoard containerStyleDark"
+      }
+    >
+      <div
+        id="statusArea"
+        className={
+          theme === "Light"
+            ? "status instructionsStyle"
+            : "status instructionsStyleDark"
+        }
+      >
         Next player: <span>{currentPlayer}</span>
       </div>
-      <div id="winnerArea" className="winner instructionsStyle">
+      <div
+        id="winnerArea"
+        className={
+          theme === "Light"
+            ? "winner instructionsStyle"
+            : "winner instructionsStyleDark"
+        }
+      >
         Winner: <span>{winner || "None"}</span>
       </div>
-      <button className="buttonStyle" onClick={handleReset}>
+      <button
+        className={theme === "Light" ? "buttonStyle" : "buttonStyleDark"}
+        onClick={handleReset}
+      >
         Reset
       </button>
-      <LightAndDark />
-      <div className="boardStyle">
+      <div className={theme === "Light" ? "boardStyle" : "boardStyleDark"}>
         <div className="board-row rowStyle">
           {renderSquare(0)}
           {renderSquare(1)}
@@ -67,6 +89,7 @@ function Board() {
           {renderSquare(8)}
         </div>
       </div>
+      <LightAndDark />
     </div>
   );
 }

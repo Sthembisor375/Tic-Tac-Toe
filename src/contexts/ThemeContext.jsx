@@ -7,7 +7,7 @@ function ThemeProvider({ children }) {
 
   function toggleTheme() {
     theme === "Dark" ? setTheme("Light") : setTheme("Dark");
-    document.body.className = theme === "Dark" ? "light-mode" : "dark-mode";
+    // document.body.className = theme === "Dark" ? "light-mode" : "dark-mode";
   }
 
   return (
